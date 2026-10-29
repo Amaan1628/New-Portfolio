@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
+import './theme.css';
+import Charminar from './Charminar';
+import Projects from './Projects';
 
 const roles = [
   { title: 'Database Operations', date: 'Jan 2025 – Present', type: 'Full time', description: 'Maintaining the data behind an education technology platform.', details: ['Manage MongoDB records through CRUD operations, validation and timely updates.', 'Investigate login, sign-up and course enrolment issues by checking and correcting relevant data.', 'Configure online tests and coding challenges, and coordinate database and application fixes with technical teams.'] },
@@ -57,6 +60,7 @@ function App() {
     <main id="main">
       <div className="split-stage">
         <aside className="identity" aria-label="Introduction">
+          <Charminar />
           <div className="identity-top">
             <p className="location">Hyderabad, India</p>
             <h1>Syed<br/>Amaan Ali</h1>
@@ -99,18 +103,7 @@ function App() {
             </div>
           </section>
 
-          <section id="projects" className="projects">
-            <h2 data-reveal>Projects</h2>
-            <p data-reveal>A space for selected projects and work highlights. Details will be added here.</p>
-            <div className="project-placeholder project-data" data-reveal>
-              <div className="project-cover"><p>Data<br/>in practice.</p><span>Project placeholder</span></div>
-              <div className="project-caption"><h3>Project to come</h3><p>Description, technology stack and project link to be added.</p></div>
-            </div>
-            <div className="project-placeholder project-web" data-reveal>
-              <div className="project-cover"><p>Built for<br/>the everyday.</p><span>Project placeholder</span></div>
-              <div className="project-caption"><h3>Work highlight to come</h3><p>A future space for an operational case study or development project.</p></div>
-            </div>
-          </section>
+          <Projects />
         </div>
       </div>
 
@@ -135,3 +128,4 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App/>);
+
