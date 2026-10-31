@@ -69,7 +69,7 @@ export default function Projects() {
     <p className="project-scroll-hint">Scroll to explore <span aria-hidden="true">↓</span> <span>{String(current + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span></p>
     <div className="project-stage">
       {projects.map(project => <article key={project.style} className={`project-placeholder ${project.style}`}>
-        {project.image ? <div className="project-cover project-screenshot"><img src={project.image} alt={project.alt} width={project.imageWidth || 1111} height={project.imageHeight || 451} /></div> : <div className="project-cover"><p>{project.headline}</p><span>Project placeholder</span></div>}
+        {project.image ? <div className="project-cover project-screenshot"><img src={`${import.meta.env.BASE_URL}${project.image.slice(1)}`} alt={project.alt} width={project.imageWidth || 1111} height={project.imageHeight || 451} /></div> : <div className="project-cover"><p>{project.headline}</p><span>Project placeholder</span></div>}
         <div className="project-caption">
           <h3>{project.title}</h3><p>{project.description}</p>
           {project.technologies && <ul className="project-technologies" aria-label="Technologies used">{project.technologies.map(technology => <li key={technology}>{technology}</li>)}</ul>}

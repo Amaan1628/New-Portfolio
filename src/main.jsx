@@ -68,7 +68,7 @@ function App() {
             <p className="location">Hyderabad, India</p>
             <h1>Syed<br/>Amaan Ali</h1>
             <p className="identity-role">Database Operations<br/>& IT Operations</p>
-            <a className="button" href="/Syed-Amaan-Ali-Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
+            <a className="button" href={`${import.meta.env.BASE_URL}Syed-Amaan-Ali-Resume.pdf`} download>Download résumé <span aria-hidden="true">↓</span></a>
           </div>
           <div className="identity-bottom">
             <p>Working where data<br/>meets day-to-day operations.</p>
@@ -123,7 +123,7 @@ function App() {
 
       <section id="contact" className="contact full-section">
         <div><h2 data-reveal>Let’s get in touch.</h2><p data-reveal>For conversations about database operations,<br/>IT operations or my work.</p><a className="button contact-button" href="mailto:Syedamaanali30@gmail.com?subject=Let%E2%80%99s%20connect">Email Amaan <span aria-hidden="true">↗</span></a></div>
-        <div className="contact-details" data-reveal><a className="email" href="mailto:Syedamaanali30@gmail.com">Syedamaanali30@gmail.com</a><button className="copy-button" onClick={copyEmail}>{copied ? 'Email copied' : 'Copy email'}</button><span className="sr-only" role="status">{copied ? 'Email address copied to clipboard' : ''}</span><div className="socials"><AnimatedLink href="https://www.linkedin.com/in/amaanali16" target="_blank" rel="noreferrer">LinkedIn</AnimatedLink><AnimatedLink href="https://github.com/Amaan1628" target="_blank" rel="noreferrer">GitHub</AnimatedLink><AnimatedLink href="/Syed-Amaan-Ali-Resume.pdf" download>Résumé</AnimatedLink></div></div>
+        <div className="contact-details" data-reveal><a className="email" href="mailto:Syedamaanali30@gmail.com">Syedamaanali30@gmail.com</a><button className="copy-button" onClick={copyEmail}>{copied ? 'Email copied' : 'Copy email'}</button><span className="sr-only" role="status">{copied ? 'Email address copied to clipboard' : ''}</span><div className="socials"><AnimatedLink href="https://www.linkedin.com/in/amaanali16" target="_blank" rel="noreferrer">LinkedIn</AnimatedLink><AnimatedLink href="https://github.com/Amaan1628" target="_blank" rel="noreferrer">GitHub</AnimatedLink><AnimatedLink href={`${import.meta.env.BASE_URL}Syed-Amaan-Ali-Resume.pdf`} download>Résumé</AnimatedLink></div></div>
       </section>
     </main>
     <footer><a className="footer-name" href="#top">Syed Amaan Ali</a><div><p>Database & IT Operations</p><a href="#top">Back to top ↑</a></div></footer>
