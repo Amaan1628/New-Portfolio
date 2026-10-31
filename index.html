@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#e5e1d8" />
+    <meta name="theme-color" content="#FAF6ED" />
+    <script>
+      (() => {
+        let saved;
+        try { saved = localStorage.getItem('portfolio-theme'); } catch {}
+        const theme = saved === 'dark' ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#211A16' : '#FAF6ED';
+      })();
+    </script>
     <meta name="description" content="Syed Amaan Ali, a database and IT operations professional in Hyderabad. Experience in MongoDB, data accuracy, assessment operations and platform support." />
     <title>Syed Amaan Ali — Database & IT Operations</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

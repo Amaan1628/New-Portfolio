@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 250" fill="none">
   <g opacity=".45">
-    <g stroke="#5B4632" stroke-width="2" stroke-linejoin="round" transform="translate(91 76) scale(.8)">
+    <g stroke="var(--art-stroke, #5B4632)" stroke-width="2" stroke-linejoin="round" transform="translate(91 76) scale(.8)">
       <path d="M-9 0V-12Q-9-23 0-29Q9-23 9-12V0M0-29V-39M-11 2H11M-8 5V133M8 5V133M-11 30H11M-11 62H11M-11 96H11M-2 12V22M-2 40V52M-2 73V85M-2 108V120" />
     </g>
-    <g stroke="#5B4632" stroke-width="2" stroke-linejoin="round" transform="translate(169 76) scale(.8)">
+    <g stroke="var(--art-stroke, #5B4632)" stroke-width="2" stroke-linejoin="round" transform="translate(169 76) scale(.8)">
       <path d="M-9 0V-12Q-9-23 0-29Q9-23 9-12V0M0-29V-39M-11 2H11M-8 5V133M8 5V133M-11 30H11M-11 62H11M-11 96H11M-2 12V22M-2 40V52M-2 73V85M-2 108V120" />
     </g>
   </g>
-  <path d="M48 103H212V231H48Z" fill="#F4D9A0" />
-  <g stroke="#5B4632" stroke-width="2" stroke-linejoin="round">
+  <path d="M48 103H212V231H48Z" fill="var(--surface, #F4D9A0)" />
+  <g stroke="var(--art-stroke, #5B4632)" stroke-width="2" stroke-linejoin="round">
     <path d="M48 103H212M48 135H212M48 144H212M48 231H212" />
     <path d="M96 231V188Q96 166 130 150Q164 166 164 188V231" />
-    <path d="M104 231V190Q104 173 130 159Q156 173 156 190V231" stroke="#C8792C" />
+    <path d="M104 231V190Q104 173 130 159Q156 173 156 190V231" stroke="var(--accent, #C8792C)" />
     <path d="M71 129V119Q71 112 77 109Q83 112 83 119V129M97 129V119Q97 112 103 109Q109 112 109 119V129M123 129V119Q123 112 129 109Q135 112 135 119V129M149 129V119Q149 112 155 109Q161 112 161 119V129M175 129V119Q175 112 181 109Q187 112 187 119V129" />
-    <path d="M67 164H81M67 183H81M67 202H81M179 164H193M179 183H193M179 202H193" stroke="#C8792C" />
-    <g stroke="#5B4632" stroke-width="2" stroke-linejoin="round" transform="translate(48 98)">
+    <path d="M67 164H81M67 183H81M67 202H81M179 164H193M179 183H193M179 202H193" stroke="var(--accent, #C8792C)" />
+    <g stroke="var(--art-stroke, #5B4632)" stroke-width="2" stroke-linejoin="round" transform="translate(48 98)">
       <path d="M-9 0V-12Q-9-23 0-29Q9-23 9-12V0M0-29V-39M-11 2H11M-8 5V133M8 5V133M-11 30H11M-11 62H11M-11 96H11M-2 12V22M-2 40V52M-2 73V85M-2 108V120" />
     </g>
-    <g stroke="#5B4632" stroke-width="2" stroke-linejoin="round" transform="translate(212 98)">
+    <g stroke="var(--art-stroke, #5B4632)" stroke-width="2" stroke-linejoin="round" transform="translate(212 98)">
       <path d="M-9 0V-12Q-9-23 0-29Q9-23 9-12V0M0-29V-39M-11 2H11M-8 5V133M8 5V133M-11 30H11M-11 62H11M-11 96H11M-2 12V22M-2 40V52M-2 73V85M-2 108V120" />
     </g>
     <path d="M34 237H226" />

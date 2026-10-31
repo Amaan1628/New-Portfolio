@@ -214,3 +214,70 @@ footer{padding-top:54px}
 /* Crop Keeper's empty right-hand area; the useful interface occupies the left two thirds. */
 .project-keeper .project-screenshot img{width:115%;height:auto;object-fit:cover;object-position:top left}
 
+/* Stable list-item hit areas keep the magnetic hover from flickering. */
+.tools li{padding:0;border:0;background:transparent;box-shadow:none;position:relative}
+.skill-surface{display:block;padding:9px 14px;background:var(--paper);border:var(--edge);box-shadow:3px 3px 0 var(--ink);pointer-events:none}
+.skill-label{display:block}
+.tools li:hover{z-index:1}
+
+/* Keep navigation links light while their underline sweeps independently. */
+.socials a.animated-link{display:inline-block;position:relative;padding-bottom:5px;text-decoration:none;transition:none}
+.socials a.animated-link:hover{transform:none}
+.contact .socials{text-decoration:none}
+.animated-link-label{display:inline-block}
+.link-line{position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none}
+.link-line-base{background:var(--ink);transform-origin:right center}
+.link-line-accent{background:var(--accent);transform:scaleX(0);transform-origin:left center}
+@media(prefers-reduced-motion:reduce){
+  .animated-link:hover .link-line-base,.animated-link:focus-visible .link-line-base{background:var(--accent)}
+  .animated-link:hover .animated-link-label,.animated-link:focus-visible .animated-link-label{color:var(--link-hover)}
+}
+
+/* Theme colors remain in CSS, so GSAP never retains a previous palette. */
+:root{color-scheme:light;--shadow:var(--ink);--link-hover:#392B20;--art-stroke:#5B4632}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#211A16;
+  --paper:#2B221C;
+  --surface:#342820;
+  --ink:#EFE4D5;
+  --muted:#C9BBA9;
+  --accent:#C8792C;
+  --accent-ink:#EFE4D5;
+  --heading:#F4D9A0;
+  --border:#8C7359;
+  --shadow:#120D09;
+  --link-hover:#F4D9A0;
+  --art-stroke:#F4D9A0;
+  --edge:1.5px solid var(--border);
+  --offset:4px 4px 0 var(--shadow);
+}
+.nav-actions{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.theme-toggle{display:grid;place-items:center;flex-shrink:0;width:40px;height:40px;padding:9px;background:transparent;border:0;color:var(--ink)}
+.theme-toggle svg{display:block;width:20px;height:20px}
+.theme-toggle:hover{color:var(--accent)}
+.theme-toggle:focus-visible{outline-offset:3px}
+.animated-link:hover .animated-link-label,.animated-link:focus-visible .animated-link-label{color:var(--link-hover)}
+.skill-surface{
+  --skill-tint:0%;--skill-shadow:3px;
+  background:color-mix(in srgb,var(--surface) var(--skill-tint),var(--paper));
+  box-shadow:var(--skill-shadow) var(--skill-shadow) 0 color-mix(in srgb,var(--accent) var(--skill-tint),var(--shadow));
+}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,
+[data-theme="dark"] .wordmark,[data-theme="dark"] .footer-name{color:var(--heading)}
+[data-theme="dark"] ::selection{background:var(--accent);color:#211A16}
+[data-theme="dark"] .nav{background:var(--bg)}
+[data-theme="dark"] .button:hover{box-shadow:6px 6px 0 var(--accent)}
+[data-theme="dark"] .button:active{box-shadow:1px 1px 0 var(--accent)}
+[data-theme="dark"] .career-step-2{background:var(--paper)}
+[data-theme="dark"] .career-step-1{background:#44301F;border-color:#C8792C;box-shadow:4px 4px 0 var(--shadow)}
+[data-theme="dark"] .career-step-1::after{opacity:.3}
+[data-theme="dark"] .career-step-0{background:var(--surface);color:var(--heading);box-shadow:4px 4px 0 var(--shadow)}
+[data-theme="dark"] .career-step:hover,[data-theme="dark"] .career-step:focus-visible{box-shadow:4px 8px 0 var(--shadow)}
+[data-theme="dark"] .project-web .project-cover,[data-theme="dark"] .project-web .project-cover p{background:var(--paper);color:var(--ink)}
+[data-theme="dark"] .identity-art{opacity:.9}
+[data-theme="dark"] .contact :focus-visible{outline-color:var(--heading)}
+[data-theme="dark"] .skip{background:var(--heading);color:var(--bg)}
+@media(max-width:1099px){.nav-actions{gap:12px}.nav-contact span{margin-left:8px}}
+@media(max-width:760px){.nav-actions{margin-left:auto;gap:12px}.theme-toggle{width:36px;height:36px;padding:7px}}
+@media(max-width:360px){.nav-actions{gap:8px}.nav-contact{font-size:14px}.wordmark{font-size:27px}}

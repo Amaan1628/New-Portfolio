@@ -4,6 +4,9 @@ import './styles.css';
 import './theme.css';
 import Charminar from './Charminar';
 import Projects from './Projects';
+import SkillTag from './SkillTag';
+import AnimatedLink from './AnimatedLink';
+import ThemeToggle from './ThemeToggle';
 
 const roles = [
   { title: 'Database Operations', date: 'Jan 2025 – Present', type: 'Full time', description: 'Maintaining the data behind an education technology platform.', details: ['Manage MongoDB records through CRUD operations, validation and timely updates.', 'Investigate login, sign-up and course enrolment issues by checking and correcting relevant data.', 'Configure online tests and coding challenges, and coordinate database and application fixes with technical teams.'] },
@@ -54,7 +57,7 @@ function App() {
       <nav aria-label="Main navigation">
         {[['about','About'],['experience','Experience'],['projects','Projects'],['skills','Skills']].map(([id,label]) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined}>{label}</a>)}
       </nav>
-      <a className="nav-contact" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+      <div className="nav-actions"><a className="nav-contact" href="#contact">Get in touch <span aria-hidden="true">↗</span></a><ThemeToggle /></div>
     </header>
 
     <main id="main">
@@ -69,7 +72,7 @@ function App() {
           </div>
           <div className="identity-bottom">
             <p>Working where data<br/>meets day-to-day operations.</p>
-            <div className="socials"><a href="https://www.linkedin.com/in/amaanali16" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/Amaan1628" target="_blank" rel="noreferrer">GitHub</a></div>
+            <div className="socials"><AnimatedLink href="https://www.linkedin.com/in/amaanali16" target="_blank" rel="noreferrer">LinkedIn</AnimatedLink><AnimatedLink href="https://github.com/Amaan1628" target="_blank" rel="noreferrer">GitHub</AnimatedLink></div>
           </div>
         </aside>
 
@@ -111,8 +114,8 @@ function App() {
         <div className="skills-heading"><h2 data-reveal>Tools & responsibilities</h2><p data-reveal>The tools I use, the work I take care of,<br/>and the technologies I’ve explored.</p></div>
         <div className="skills-body">
           <div className="tool-lists">
-            <div data-reveal><h3>Core tools</h3><ul className="tools">{core.map(skill => <li key={skill}>{skill}</li>)}</ul></div>
-            <div data-reveal><h3>Technical exposure</h3><ul className="tools">{exposure.map(skill => <li key={skill}>{skill}</li>)}</ul></div>
+            <div data-reveal><h3>Core tools</h3><ul className="tools">{core.map(skill => <SkillTag key={skill}>{skill}</SkillTag>)}</ul></div>
+            <div data-reveal><h3>Technical exposure</h3><ul className="tools">{exposure.map(skill => <SkillTag key={skill}>{skill}</SkillTag>)}</ul></div>
           </div>
           <div className="responsibilities"><h3 data-reveal>What I work on</h3><ul>{responsibilities.map(item => <li data-reveal key={item}>{item}</li>)}</ul></div>
         </div>
@@ -120,7 +123,7 @@ function App() {
 
       <section id="contact" className="contact full-section">
         <div><h2 data-reveal>Let’s get in touch.</h2><p data-reveal>For conversations about database operations,<br/>IT operations or my work.</p><a className="button contact-button" href="mailto:Syedamaanali30@gmail.com?subject=Let%E2%80%99s%20connect">Email Amaan <span aria-hidden="true">↗</span></a></div>
-        <div className="contact-details" data-reveal><a className="email" href="mailto:Syedamaanali30@gmail.com">Syedamaanali30@gmail.com</a><button className="copy-button" onClick={copyEmail}>{copied ? 'Email copied' : 'Copy email'}</button><span className="sr-only" role="status">{copied ? 'Email address copied to clipboard' : ''}</span><div className="socials"><a href="https://www.linkedin.com/in/amaanali16" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/Amaan1628" target="_blank" rel="noreferrer">GitHub</a><a href="/Syed-Amaan-Ali-Resume.pdf" download>Résumé</a></div></div>
+        <div className="contact-details" data-reveal><a className="email" href="mailto:Syedamaanali30@gmail.com">Syedamaanali30@gmail.com</a><button className="copy-button" onClick={copyEmail}>{copied ? 'Email copied' : 'Copy email'}</button><span className="sr-only" role="status">{copied ? 'Email address copied to clipboard' : ''}</span><div className="socials"><AnimatedLink href="https://www.linkedin.com/in/amaanali16" target="_blank" rel="noreferrer">LinkedIn</AnimatedLink><AnimatedLink href="https://github.com/Amaan1628" target="_blank" rel="noreferrer">GitHub</AnimatedLink><AnimatedLink href="/Syed-Amaan-Ali-Resume.pdf" download>Résumé</AnimatedLink></div></div>
       </section>
     </main>
     <footer><a className="footer-name" href="#top">Syed Amaan Ali</a><div><p>Database & IT Operations</p><a href="#top">Back to top ↑</a></div></footer>
@@ -128,4 +131,5 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App/>);
+
 
