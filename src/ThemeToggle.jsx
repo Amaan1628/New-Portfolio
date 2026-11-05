@@ -6,12 +6,12 @@ export default function ThemeToggle() {
   const toggle = () => {
     const next = dark ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
-    document.querySelector('meta[name="theme-color"]').content = next === 'dark' ? '#211A16' : '#FAF6ED';
+    document.querySelector('meta[name="theme-color"]').content = next === 'dark' ? '#061426' : '#D1DDF8';
     try { localStorage.setItem('portfolio-theme', next); } catch { /* The toggle still works without storage. */ }
     setDark(!dark);
   };
 
-  return <button className="theme-toggle" type="button" aria-label="Dark mode" aria-pressed={dark}
+  return <button className="theme-toggle" type="button" aria-label={`Switch to ${dark ? 'light' : 'dark'} mode`} aria-pressed={dark}
     title={`Switch to ${dark ? 'light' : 'dark'} mode`} onClick={toggle}>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
       {dark ? <path d="M20.6 13.1A8.6 8.6 0 0 1 10.9 3.4 8.7 8.7 0 1 0 20.6 13.1Z" /> : <>
@@ -20,3 +20,4 @@ export default function ThemeToggle() {
     </svg>
   </button>;
 }
+
