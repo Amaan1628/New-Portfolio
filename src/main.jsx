@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { gsap } from 'gsap';
 import './styles.css';
 import './theme.css';
 import Charminar from './Charminar';
@@ -21,6 +22,43 @@ function App() {
   const [active, setActive] = useState('about');
   const [openRole, setOpenRole] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [showThemeHint, setShowThemeHint] = useState(true);
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setShowThemeHint(false), 5000);
+    return () => window.clearTimeout(timeout);
+  }, []);
+  useEffect(() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const layer = document.createElement('div');
+    layer.className = 'rain-layer';
+    layer.setAttribute('aria-hidden', 'true');
+    const drops = Array.from({ length: 320 }, (_, i) => {
+      const drop = document.createElement('i');
+      drop.className = 'rain-drop';
+      drop.style.left = `${(i * 61.8034) % 100}%`;
+      drop.style.height = `${9 + (i % 7) * 2}px`;
+      drop.style.width = `${i % 4 === 0 ? 1.8 : 1.3}px`;
+      drop.style.opacity = `${0.38 + (i % 5) * 0.055}`;
+      layer.appendChild(drop);
+      return { element: drop, offset: (i * 137.37) % 1000, speed: 0.7 + (i % 7) * 0.12 };
+    });
+    document.body.prepend(layer);
+    const rain = { y: 0 };
+    const paint = () => drops.forEach(({ element, offset, speed }) => {
+      const y = ((offset + rain.y * speed) % (innerHeight + 30) + innerHeight + 30) % (innerHeight + 30) - 15;
+      element.style.transform = `translate3d(0, ${y}px, 0)`;
+    });
+    let previous = window.scrollY;
+    const onScroll = () => {
+      const current = window.scrollY;
+      const delta = current - previous;
+      previous = current;
+      gsap.to(rain, { y: rain.y + delta * 1.8, duration: 0.24, ease: 'power2.out', overwrite: true, onUpdate: paint });
+    };
+    paint();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); gsap.killTweensOf(rain); layer.remove(); };
+  }, []);
   useEffect(() => {
     const target = document.getElementById(window.location.hash.slice(1));
     if (target) document.fonts.ready.then(() => target.scrollIntoView({ behavior: 'instant', block: 'start' }));
@@ -57,7 +95,7 @@ function App() {
       <nav aria-label="Main navigation">
         {[['about','About'],['experience','Experience'],['projects','Projects'],['skills','Skills']].map(([id,label]) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined}>{label}</a>)}
       </nav>
-      <div className="nav-actions"><a className="nav-contact" href="#contact">Get in touch <span aria-hidden="true">↗</span></a><ThemeToggle /></div>
+      <div className="nav-actions"><a className="nav-contact" href="#contact">Get in touch <span aria-hidden="true">↗</span></a><ThemeToggle />{showThemeHint && <span className="theme-hint" role="status">Click here to switch mode</span>}</div>
     </header>
 
     <main id="main">

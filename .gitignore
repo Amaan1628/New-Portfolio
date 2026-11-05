@@ -2,3 +2,5 @@ node_modules/
 dist/
 .taste-skill/inspect/
 *.log
+.experiments/
+.taste-skill/
